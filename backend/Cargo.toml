@@ -47,3 +47,7 @@ tokenizers = "0.23.1"
 
 # For CPU or GPU support
 candle-cpu = "0.8"  # CPU only
+
+[[bin]]
+name = "generate_embeddings"
+path = "src/bin/generate_embeddings.rs"
