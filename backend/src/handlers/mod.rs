@@ -1,1 +1,3 @@
-// Handlers module placeholder
+pub mod recommendations;
+
+pub use recommendations::*;
