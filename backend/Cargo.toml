@@ -55,6 +55,9 @@ candle-transformers = "0.10.2"
 hf-hub = "0.5.0"  # To download models from HuggingFace
 tokenizers = "0.23.1"
 
+# For async middleware
+futures = "0.3"
+
 [[bin]]
 name = "generate_embeddings"
 path = "src/bin/generate_embeddings.rs"

@@ -1,1 +1,3 @@
-// Middleware module placeholder
+pub mod auth;
+
+pub use auth::AuthMiddleware;

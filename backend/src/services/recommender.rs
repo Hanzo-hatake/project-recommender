@@ -110,7 +110,7 @@ impl RecommendationService {
         }
         
         // Return top N
-        let result = recommendations.into_iter().take(top_n).collect();
+        let result:Vec<RecommendedTopic>= recommendations.into_iter().take(top_n).collect();
         
         println!("✅ Generated {} recommendations", result.len());
         

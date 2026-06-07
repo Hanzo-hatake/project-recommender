@@ -349,6 +349,7 @@ dependencies = [
  "chrono",
  "dotenv",
  "env_logger",
+ "futures",
  "hf-hub",
  "jsonwebtoken",
  "log",

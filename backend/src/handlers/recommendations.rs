@@ -1,5 +1,5 @@
 use actix_web::{web, HttpResponse, post};
-use crate::models::{RecommendationRequest, RecommendedTopic};
+use crate::models::RecommendationRequest;
 use crate::services::RecommendationService;
 use sqlx::PgPool;
 
