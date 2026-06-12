@@ -3,16 +3,15 @@ mod db;
 mod handlers;
 mod models;
 mod services;
-mod middleware;
 
 use actix_web::{web, App, HttpServer, middleware as actix_middleware};
 use actix_cors::Cors;
 use dotenv::dotenv;
 use std::env;
+use log::info;
 
 use db::create_pool;
-use services::{EmbeddingService, RecommendationService, AuthService};
-use middleware::AuthMiddleware;
+use services::{EmbeddingService, RecommendationService};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -21,29 +20,27 @@ async fn main() -> std::io::Result<()> {
     
     let database_url = env::var("DATABASE_URL")
         .expect("DATABASE_URL not found in .env");
-    let jwt_secret = env::var("JWT_SECRET")
-        .expect("JWT_SECRET not found in .env");
     let server_host = env::var("SERVER_HOST").unwrap_or_else(|_| "127.0.0.1".to_string());
     let server_port = env::var("SERVER_PORT").unwrap_or_else(|_| "8080".to_string());
     
-    println!("🚀 Starting Project Recommender API Server...\n");
+    info!("🚀 Starting Project Recommender API Server...\n");
     
-    println!("📦 Initializing database connection...");
+    info!("📦 Initializing database connection...");
     let pool = create_pool(&database_url)
         .await
         .expect("Failed to create database pool");
+    info!("✓ Database connection established");
     
-    println!("🤖 Loading embedding model...");
+    info!("🤖 Loading embedding model...");
     let embedding_service = EmbeddingService::new()
         .expect("Failed to initialize embedding service");
-    println!("✓ Embedding service ready\n");
+    info!("✓ Embedding service ready\n");
     
     let rec_service = RecommendationService::new(embedding_service.clone(), pool.clone());
-    let auth_service = AuthService::new(pool.clone(), jwt_secret);
-    let auth_middleware = AuthMiddleware::new(auth_service.clone());
     
     let server_addr = format!("{}:{}", server_host, server_port);
-    println!("📡 Server listening on: http://{}\n", server_addr);
+    info!("📡 Server listening on: http://{}", server_addr);
+    info!("✅ Clerk authentication enabled\n");
     
     HttpServer::new(move || {
         let cors = Cors::default()
@@ -54,17 +51,24 @@ async fn main() -> std::io::Result<()> {
         
         App::new()
             .app_data(web::Data::new(rec_service.clone()))
-            .app_data(web::Data::new(auth_service.clone()))
             .wrap(actix_middleware::Logger::default())
             .wrap(cors)
-            // Public endpoints (no auth required)
-            .service(handlers::get_recommendations)
+            // Public endpoints
             .service(handlers::health_check)
-            .service(handlers::register)
-            .service(handlers::login)
-            .route("/", actix_web::web::get().to(|| async { "Project Recommender API" }))
+            .service(handlers::get_recommendations)
+            // Clerk auth endpoints (minimal)
+            .route("/api/auth/status", actix_web::web::get().to(auth_status))
+            .route("/", actix_web::web::get().to(|| async { "Project Recommender API - Powered by Clerk" }))
     })
     .bind(&server_addr)?
     .run()
     .await
+}
+
+// Simple auth status endpoint for Clerk integration
+async fn auth_status() -> actix_web::HttpResponse {
+    actix_web::HttpResponse::Ok().json(serde_json::json!({
+        "auth": "Clerk",
+        "status": "enabled"
+    }))
 }

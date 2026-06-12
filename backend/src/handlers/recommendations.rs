@@ -1,15 +1,12 @@
 use actix_web::{web, HttpResponse, post};
 use crate::models::RecommendationRequest;
 use crate::services::RecommendationService;
-use sqlx::PgPool;
 
 #[post("/api/recommendations")]
 pub async fn get_recommendations(
     body: web::Json<RecommendationRequest>,
-    data: web::Data<(RecommendationService, PgPool)>,
+    rec_service: web::Data<RecommendationService>,
 ) -> HttpResponse {
-    let (rec_service, _pool) = data.get_ref();
-    
     match rec_service.get_recommendations(
         &body.interests,
         &body.skill_level,
