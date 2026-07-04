@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : 'http://localhost:8080/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -32,14 +34,11 @@ export const recommendationService = {
     const response = await api.post<RecommendedTopic[]>('/recommendations', request);
     return response.data;
   },
-
   getHealthCheck: async () => {
     const response = await api.get('/health');
     return response.data;
   },
 };
-
-export default api;
 
 export interface AnalyticsData {
   total_topics: number
@@ -53,6 +52,7 @@ export const analyticsService = {
     return response.data
   },
 }
+
 export interface UserRole {
   is_admin: boolean
   clerk_id: string
@@ -60,8 +60,12 @@ export interface UserRole {
 }
 
 export const userService = {
-  getUserRole: async (clerkId: string, email: string): Promise<UserRole> => {
-    const response = await api.post<UserRole>('/users/role', { clerk_id: clerkId, email })
+  getUserRole: async (clerkId: string, email: string, fullName: string): Promise<UserRole> => {
+    const response = await api.post<UserRole>('/users/role', {
+      clerk_id: clerkId,
+      email,
+      full_name: fullName,
+    })
     return response.data
   },
 }
@@ -106,3 +110,5 @@ export const adminService = {
     return response.data
   },
 }
+
+export default api;
