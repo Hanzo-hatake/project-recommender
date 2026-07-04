@@ -13,17 +13,10 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY Cargo.toml Cargo.lock ./
-
-# Create dummy src to cache dependencies
-RUN mkdir src && echo "fn main() {}" > src/main.rs
-RUN cargo build --release --bin backend 2>/dev/null || true
-RUN rm -rf src
-
-# Copy real source
 COPY src ./src
+COPY .sqlx ./.sqlx
 
-# Touch to force rebuild
-RUN touch src/main.rs
+ENV SQLX_OFFLINE=true
 
 RUN cargo build --release --bin backend
 
