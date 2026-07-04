@@ -1,4 +1,4 @@
-FROM rust:1.75-slim as builder
+FROM rust:latest as builder
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ RUN rm -rf src
 # Copy real source
 COPY src ./src
 
-# Touch main.rs to force rebuild
+# Touch to force rebuild
 RUN touch src/main.rs
 
 RUN cargo build --release --bin backend
