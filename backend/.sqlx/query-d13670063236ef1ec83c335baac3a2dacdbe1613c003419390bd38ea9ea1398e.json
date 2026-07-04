@@ -1,0 +1,54 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO users (clerk_id, email, full_name, role, is_admin)\n                 VALUES ($1, $2, $3, 'student', FALSE)\n                 ON CONFLICT (email) DO UPDATE\n                 SET clerk_id = EXCLUDED.clerk_id\n                 RETURNING clerk_id, email, is_admin",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "clerk_id",
+        "type_info": "Varchar",
+        "origin": {
+          "Table": {
+            "table": "users",
+            "name": "clerk_id"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "email",
+        "type_info": "Varchar",
+        "origin": {
+          "Table": {
+            "table": "users",
+            "name": "email"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "is_admin",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "users",
+            "name": "is_admin"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Varchar",
+        "Varchar",
+        "Varchar"
+      ]
+    },
+    "nullable": [
+      true,
+      false,
+      true
+    ]
+  },
+  "hash": "d13670063236ef1ec83c335baac3a2dacdbe1613c003419390bd38ea9ea1398e"
+}

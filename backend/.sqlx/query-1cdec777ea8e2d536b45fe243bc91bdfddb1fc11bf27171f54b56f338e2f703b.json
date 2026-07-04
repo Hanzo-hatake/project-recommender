@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE topics SET embedding = $1 WHERE id = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Float4Array",
+        "Int4"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "1cdec777ea8e2d536b45fe243bc91bdfddb1fc11bf27171f54b56f338e2f703b"
+}

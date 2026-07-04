@@ -1,0 +1,86 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id, title, domain, difficulty, duration_months, is_active\n         FROM topics\n         ORDER BY id ASC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4",
+        "origin": {
+          "Table": {
+            "table": "topics",
+            "name": "id"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "title",
+        "type_info": "Varchar",
+        "origin": {
+          "Table": {
+            "table": "topics",
+            "name": "title"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "domain",
+        "type_info": "Varchar",
+        "origin": {
+          "Table": {
+            "table": "topics",
+            "name": "domain"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "difficulty",
+        "type_info": "Varchar",
+        "origin": {
+          "Table": {
+            "table": "topics",
+            "name": "difficulty"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "name": "duration_months",
+        "type_info": "Int4",
+        "origin": {
+          "Table": {
+            "table": "topics",
+            "name": "duration_months"
+          }
+        }
+      },
+      {
+        "ordinal": 5,
+        "name": "is_active",
+        "type_info": "Bool",
+        "origin": {
+          "Table": {
+            "table": "topics",
+            "name": "is_active"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "8bf88aa159ade03ec213aaf9d7abc92d96f5d03e110c1f84ef6a853fb02d830d"
+}
