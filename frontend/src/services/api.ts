@@ -53,3 +53,56 @@ export const analyticsService = {
     return response.data
   },
 }
+export interface UserRole {
+  is_admin: boolean
+  clerk_id: string
+  email: string
+}
+
+export const userService = {
+  getUserRole: async (clerkId: string, email: string): Promise<UserRole> => {
+    const response = await api.post<UserRole>('/users/role', { clerk_id: clerkId, email })
+    return response.data
+  },
+}
+
+export interface AdminStats {
+  total_topics: number
+  active_topics: number
+  total_users: number
+  admin_users: number
+  student_users: number
+}
+
+export interface AdminTopic {
+  id: number
+  title: string
+  domain: string
+  difficulty: string
+  duration_months: number
+  status: string
+}
+
+export interface AdminUser {
+  id: number
+  email: string
+  full_name: string
+  is_admin: boolean
+  role: string
+  created_at: string
+}
+
+export const adminService = {
+  getStats: async (): Promise<AdminStats> => {
+    const response = await api.get<AdminStats>('/admin/stats')
+    return response.data
+  },
+  getTopics: async (): Promise<AdminTopic[]> => {
+    const response = await api.get<AdminTopic[]>('/admin/topics')
+    return response.data
+  },
+  getUsers: async (): Promise<AdminUser[]> => {
+    const response = await api.get<AdminUser[]>('/admin/users')
+    return response.data
+  },
+}
