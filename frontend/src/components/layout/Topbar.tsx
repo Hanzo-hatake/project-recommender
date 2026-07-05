@@ -23,7 +23,6 @@ export default function TopBar({ title }: TopBarProps) {
         {title || 'Dashboard'}
       </h1>
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        {/* Search */}
         <div style={{
           display: 'flex', alignItems: 'center', gap: '8px',
           backgroundColor: '#f9fafb',
@@ -41,8 +40,6 @@ export default function TopBar({ title }: TopBarProps) {
             }}
           />
         </div>
-
-        {/* Notification */}
         <button style={{
           width: '36px', height: '36px',
           borderRadius: '50%',
@@ -51,8 +48,6 @@ export default function TopBar({ title }: TopBarProps) {
           cursor: 'pointer',
           fontSize: '16px',
         }}>🔔</button>
-
-        {/* Avatar */}
         <div
           onClick={() => navigate('/settings')}
           style={{

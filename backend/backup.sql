@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict DueZmE7wVzem3lgq3GawzmPwJdgymGooS02gBXx7reBdehEzWNPBRlOcxIAhbUQ
+\restrict MCNtOfPjLVGEgjLazf0hT54FT0EwfCJd0cLQHooCjFHK4b3fSCynyZejDJMFgWy
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -24,7 +24,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: activity_logs; Type: TABLE; Schema: public; Owner: postgres
+-- Name: activity_logs; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.activity_logs (
@@ -36,10 +36,8 @@ CREATE TABLE public.activity_logs (
 );
 
 
-ALTER TABLE public.activity_logs OWNER TO postgres;
-
 --
--- Name: activity_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: activity_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.activity_logs_id_seq
@@ -51,17 +49,15 @@ CREATE SEQUENCE public.activity_logs_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.activity_logs_id_seq OWNER TO postgres;
-
 --
--- Name: activity_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: activity_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.activity_logs_id_seq OWNED BY public.activity_logs.id;
 
 
 --
--- Name: recommendations; Type: TABLE; Schema: public; Owner: postgres
+-- Name: recommendations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.recommendations (
@@ -74,10 +70,8 @@ CREATE TABLE public.recommendations (
 );
 
 
-ALTER TABLE public.recommendations OWNER TO postgres;
-
 --
--- Name: recommendations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: recommendations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.recommendations_id_seq
@@ -89,17 +83,15 @@ CREATE SEQUENCE public.recommendations_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.recommendations_id_seq OWNER TO postgres;
-
 --
--- Name: recommendations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: recommendations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.recommendations_id_seq OWNED BY public.recommendations.id;
 
 
 --
--- Name: student_profiles; Type: TABLE; Schema: public; Owner: postgres
+-- Name: student_profiles; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.student_profiles (
@@ -114,10 +106,8 @@ CREATE TABLE public.student_profiles (
 );
 
 
-ALTER TABLE public.student_profiles OWNER TO postgres;
-
 --
--- Name: student_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: student_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.student_profiles_id_seq
@@ -129,17 +119,15 @@ CREATE SEQUENCE public.student_profiles_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.student_profiles_id_seq OWNER TO postgres;
-
 --
--- Name: student_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: student_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.student_profiles_id_seq OWNED BY public.student_profiles.id;
 
 
 --
--- Name: topics; Type: TABLE; Schema: public; Owner: postgres
+-- Name: topics; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.topics (
@@ -157,10 +145,8 @@ CREATE TABLE public.topics (
 );
 
 
-ALTER TABLE public.topics OWNER TO postgres;
-
 --
--- Name: topics_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: topics_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.topics_id_seq
@@ -172,17 +158,15 @@ CREATE SEQUENCE public.topics_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.topics_id_seq OWNER TO postgres;
-
 --
--- Name: topics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: topics_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.topics_id_seq OWNED BY public.topics.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
+-- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.users (
@@ -198,10 +182,8 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO postgres;
-
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -213,52 +195,50 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
-
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: activity_logs id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: activity_logs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.activity_logs ALTER COLUMN id SET DEFAULT nextval('public.activity_logs_id_seq'::regclass);
 
 
 --
--- Name: recommendations id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: recommendations id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.recommendations ALTER COLUMN id SET DEFAULT nextval('public.recommendations_id_seq'::regclass);
 
 
 --
--- Name: student_profiles id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: student_profiles id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.student_profiles ALTER COLUMN id SET DEFAULT nextval('public.student_profiles_id_seq'::regclass);
 
 
 --
--- Name: topics id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: topics id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.topics ALTER COLUMN id SET DEFAULT nextval('public.topics_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Data for Name: activity_logs; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: activity_logs; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.activity_logs (id, admin_id, action, details, created_at) FROM stdin;
@@ -266,7 +246,7 @@ COPY public.activity_logs (id, admin_id, action, details, created_at) FROM stdin
 
 
 --
--- Data for Name: recommendations; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: recommendations; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.recommendations (id, user_id, topic_id, match_score, status, created_at) FROM stdin;
@@ -274,7 +254,7 @@ COPY public.recommendations (id, user_id, topic_id, match_score, status, created
 
 
 --
--- Data for Name: student_profiles; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: student_profiles; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.student_profiles (id, user_id, interests, skill_level, preferred_domains, available_months, interests_embedding, updated_at) FROM stdin;
@@ -282,7 +262,7 @@ COPY public.student_profiles (id, user_id, interests, skill_level, preferred_dom
 
 
 --
--- Data for Name: topics; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: topics; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.topics (id, title, description, domain, difficulty, duration_months, tags, embedding, is_active, times_selected, created_at) FROM stdin;
@@ -324,7 +304,7 @@ COPY public.topics (id, title, description, domain, difficulty, duration_months,
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.users (id, email, password_hash, full_name, matric_number, role, created_at, clerk_id, is_admin) FROM stdin;
@@ -333,42 +313,42 @@ COPY public.users (id, email, password_hash, full_name, matric_number, role, cre
 
 
 --
--- Name: activity_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: activity_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.activity_logs_id_seq', 1, false);
 
 
 --
--- Name: recommendations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: recommendations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.recommendations_id_seq', 1, false);
 
 
 --
--- Name: student_profiles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: student_profiles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.student_profiles_id_seq', 1, false);
 
 
 --
--- Name: topics_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: topics_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.topics_id_seq', 34, true);
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 9, true);
 
 
 --
--- Name: activity_logs activity_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: activity_logs activity_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.activity_logs
@@ -376,7 +356,7 @@ ALTER TABLE ONLY public.activity_logs
 
 
 --
--- Name: recommendations recommendations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: recommendations recommendations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.recommendations
@@ -384,7 +364,7 @@ ALTER TABLE ONLY public.recommendations
 
 
 --
--- Name: student_profiles student_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: student_profiles student_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.student_profiles
@@ -392,7 +372,7 @@ ALTER TABLE ONLY public.student_profiles
 
 
 --
--- Name: student_profiles student_profiles_user_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: student_profiles student_profiles_user_id_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.student_profiles
@@ -400,7 +380,7 @@ ALTER TABLE ONLY public.student_profiles
 
 
 --
--- Name: topics topics_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: topics topics_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.topics
@@ -408,7 +388,7 @@ ALTER TABLE ONLY public.topics
 
 
 --
--- Name: users users_clerk_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_clerk_id_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users
@@ -416,7 +396,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users
@@ -424,7 +404,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_matric_number_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_matric_number_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users
@@ -432,7 +412,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users
@@ -440,35 +420,35 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: idx_recommendations_status; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_recommendations_status; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX idx_recommendations_status ON public.recommendations USING btree (status);
 
 
 --
--- Name: idx_recommendations_user; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_recommendations_user; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX idx_recommendations_user ON public.recommendations USING btree (user_id);
 
 
 --
--- Name: idx_topics_difficulty; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_topics_difficulty; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX idx_topics_difficulty ON public.topics USING btree (difficulty);
 
 
 --
--- Name: idx_topics_domain; Type: INDEX; Schema: public; Owner: postgres
+-- Name: idx_topics_domain; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX idx_topics_domain ON public.topics USING btree (domain);
 
 
 --
--- Name: recommendations recommendations_topic_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: recommendations recommendations_topic_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.recommendations
@@ -479,5 +459,5 @@ ALTER TABLE ONLY public.recommendations
 -- PostgreSQL database dump complete
 --
 
-\unrestrict DueZmE7wVzem3lgq3GawzmPwJdgymGooS02gBXx7reBdehEzWNPBRlOcxIAhbUQ
+\unrestrict MCNtOfPjLVGEgjLazf0hT54FT0EwfCJd0cLQHooCjFHK4b3fSCynyZejDJMFgWy
 

@@ -189,7 +189,7 @@ export default function HistoryPage() {
 
                 {/* Tags */}
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                  {item.tags.map(tag => (
+                  {item.tags.map((tag: string) => (
                     <span key={tag} style={{ backgroundColor: '#f3f4f6', color: '#374151', padding: '3px 10px', borderRadius: '999px', fontSize: '12px' }}>{tag}</span>
                   ))}
                 </div>
